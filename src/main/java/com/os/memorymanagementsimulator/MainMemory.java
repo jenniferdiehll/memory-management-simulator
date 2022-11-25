@@ -62,6 +62,7 @@ public class MainMemory {
 
     private void printMemory() {
         System.out.println();
+        System.out.println();
         System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ MAIN MEMORY ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         for (int i = 0; i < pages.length; i++) {
             if (isNull(pages[i])) {

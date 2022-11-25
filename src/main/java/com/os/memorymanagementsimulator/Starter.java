@@ -8,12 +8,12 @@ public class Starter {
 
         MemoryManagementUnit mmu = new MemoryManagementUnit();
 
-        for (int i = 0; i < 10 ; i++) {
-//            Thread t = new Thread(() -> {
+        while(true){
+            Thread t = new Thread(() -> {
                 mmu.addPage(new Pages(OffsetDateTime.now()));
-//            });
-//            Thread.sleep(2000);
-//            t.start();
+            });
+            Thread.sleep(2000);
+            t.start();
         }
     }
 }

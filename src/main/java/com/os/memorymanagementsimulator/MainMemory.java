@@ -1,10 +1,14 @@
 package com.os.memorymanagementsimulator;
 
+import static com.os.memorymanagementsimulator.Utils.Output.ANSI_GREEN;
+import static com.os.memorymanagementsimulator.Utils.Output.ANSI_RESET;
+import static com.os.memorymanagementsimulator.Utils.Output.ANSI_VERMELHO;
+import static com.os.memorymanagementsimulator.Utils.Output.ANSI_YELLOW;
 import static java.util.Objects.isNull;
 
 import java.time.OffsetDateTime;
 
-import com.os.memorymanagementsimulator.Utils.Colors;
+import com.os.memorymanagementsimulator.Utils.Output;
 
 import lombok.Getter;
 
@@ -13,8 +17,7 @@ public class MainMemory {
 
     static final int SIZE = 64;
     Pages[] pages;
-    Colors color;
-
+    Output color;
 
     public MainMemory() {
         pages = new Pages[SIZE / Pages.SIZE];
@@ -59,16 +62,15 @@ public class MainMemory {
     }
 
     private void printMemory() {
-        System.out.println("-----------------------------------------------------------------------------");
-        System.out.printf("%43s", "MAIN MEMORY");
         System.out.println();
-        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ MAIN MEMORY ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         for (int i = 0; i < pages.length; i++) {
             if (isNull(pages[i])) {
-                System.out.printf("%5s", i);
+                System.out.print(" " + i);
+                System.out.print(ANSI_VERMELHO + " - NP  " + ANSI_RESET);
             } else {
-                System.out.format("%5s", i);
-                System.out.format("%5s", pages[i].id);
+                System.out.format(" " + i);
+                System.out.print(ANSI_GREEN + " - P:" + pages[i].id + "  " + ANSI_RESET);
             }
         }
     }
@@ -76,16 +78,16 @@ public class MainMemory {
     private void printPagesReplaced(final String s) {
         System.out.println();
         System.out.print(s);
-        System.out.print(Colors.ANSI_GREEN + " ✔" + Colors.ANSI_RESET);
+        System.out.print(ANSI_GREEN + " ✔" + ANSI_RESET);
         System.out.println();
-        System.out.println("└────────────────────────────────────────────────────────┘");
+        System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────┘");
         System.out.println();
     }
 
     private void printReplacementHeader() {
         System.out.println();
-        System.out.print("┌───────────── Page replacement required ────────────────┐" + "\n");
-        System.out.print(Colors.ANSI_YELLOW + "  Replacement started" + Colors.ANSI_RESET);
-        System.out.print(Colors.ANSI_YELLOW + " 🔄" + Colors.ANSI_RESET);
+        System.out.print("┌─────────────────────────────────── Page replacement required ───────────────────────────────────┐" + "\n");
+        System.out.print(ANSI_YELLOW + "  Replacement started" + ANSI_RESET);
+        System.out.print(ANSI_YELLOW + " 🔄" + ANSI_RESET);
     }
 }

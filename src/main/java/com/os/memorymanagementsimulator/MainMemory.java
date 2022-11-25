@@ -24,7 +24,6 @@ public class MainMemory {
     }
 
     public void addPage(Pages newPage) {
-        System.out.println(newPage.accessDate);
         boolean shouldReplace = false;
         for (int i = 0; i < pages.length; i++) {
             if (isNull(pages[i])) {

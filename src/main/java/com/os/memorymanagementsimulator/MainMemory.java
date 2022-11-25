@@ -86,6 +86,7 @@ public class MainMemory {
 
     private void printReplacementHeader() {
         System.out.println();
+        System.out.println();
         System.out.print("┌─────────────────────────────────── Page replacement required ───────────────────────────────────┐" + "\n");
         System.out.print(ANSI_YELLOW + "  Replacement started" + ANSI_RESET);
         System.out.print(ANSI_YELLOW + " 🔄" + ANSI_RESET);

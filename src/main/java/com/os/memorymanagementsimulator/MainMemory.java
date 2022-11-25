@@ -17,7 +17,7 @@ public class MainMemory {
 
     static final int SIZE = 64;
     Pages[] pages;
-    Output color;
+    Output output;
 
     public MainMemory() {
         pages = new Pages[SIZE / Pages.SIZE];
